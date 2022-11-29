@@ -26,6 +26,8 @@ fn main() {
     //runtime
     println!("{}ms",sort_algo::calc_insertionsort_runtime());
 
-    println!("Linear Search: {}", search_algo::linear_search(&arr, 22))
+    println!("Linear Search: {}", search_algo::linear_search(&arr, 9));
+
+    print!("Binaery Search: {}", search_algo::binaery_search(&arr, 9));
 
 }

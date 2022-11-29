@@ -28,7 +28,7 @@ pub fn bubble_sort(arr: &mut [usize]) -> &[usize]{
  * for arr[0] needs to do an extra sorting!
  * ****/
 pub fn insertion_sort(arr: &mut [usize]) -> &[usize] {
-    for i in 0..arr.len() { 
+    for i in 1..arr.len() { 
         let mut j: usize = i - 1; 
         let key = arr[i];
        
@@ -39,6 +39,18 @@ pub fn insertion_sort(arr: &mut [usize]) -> &[usize] {
         }
         arr[j + 1] = key;
     } 
+    //sort arr[0] in list
+    let mut counter = 0;
+    for i in 1..arr.len() {
+        if arr[counter] > arr[i] {
+            let temp = arr[counter];
+            arr[counter] = arr[i];
+            arr[i] = temp;
+            counter = counter + 1;
+        } else {
+            break;
+        }
+    }
     arr
 }
 

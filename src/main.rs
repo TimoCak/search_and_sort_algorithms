@@ -13,6 +13,8 @@ fn main() {
     for i in  arr {
         println!("{i}");
     }
+    //runtime
+    println!("{}ms",sort_algo::calc_bubblesort_runtime());
 
     //insertionSort
     println!("Insertion Sort!");
@@ -21,4 +23,9 @@ fn main() {
     for i in  arr {
         println!("{i}");
     }
+    //runtime
+    println!("{}ms",sort_algo::calc_insertionsort_runtime());
+
+    println!("Linear Search: {}", search_algo::linear_search(&arr, 22))
+
 }

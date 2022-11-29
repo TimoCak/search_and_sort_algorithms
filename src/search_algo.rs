@@ -24,6 +24,24 @@ pub fn binaery_search<T: Ord>(arr: &[T], el: T) -> isize {
     -1
 }
 
-pub fn interpolation_search() -> isize {
+pub fn interpolation_search (arr: &[usize], el: usize) -> isize {
+    let mut left: usize = 0;
+    let mut right: usize = arr.len()-1;
+    let mut middle: usize;
+    
+    while arr[right] != arr[left] 
+          && el >= arr[left] 
+          && el <= arr[right] 
+    {
+       middle = left + ((el - arr[left]) * (right - left) / 
+                (arr[right] - arr[left])); 
+       if arr[middle] < el {
+        left = middle + 1;
+       } else if el < arr[middle] {
+           right = middle;
+       } else {
+        return middle.try_into().unwrap();
+       }
+    }
     -1
 }

@@ -28,6 +28,8 @@ fn main() {
 
     println!("Linear Search: {}", search_algo::linear_search(&arr, 9));
 
-    print!("Binaery Search: {}", search_algo::binaery_search(&arr, 9));
+    println!("Binaery Search: {}", search_algo::binaery_search(&arr, 9));
+
+    println!("Interpolation Search: {}", search_algo::interpolation_search(&arr, 9));
 
 }

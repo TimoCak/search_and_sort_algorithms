@@ -1,11 +1,9 @@
-use crate::sort_algo::bubble_sort;
-
 mod sort_algo;
 mod search_algo;
+mod tests;
+mod runtime;
 fn main() {
-    /*
-    testing!
-    */
+    
     let mut arr = [10, 4 , 3 ,4 ,5, 6 ,7, 3, 2];
     //bubbleSort
     println!("Bubble Sort");
@@ -13,9 +11,6 @@ fn main() {
     for i in  arr {
         println!("{i}");
     }
-    //runtime
-    println!("{}ms",sort_algo::calc_bubblesort_runtime());
-
     //insertionSort
     println!("Insertion Sort!");
     let mut arr = [21 ,10, 9, 4 , 3 ,4 ,5, 6 ,7, 3, 2];
@@ -23,13 +18,14 @@ fn main() {
     for i in  arr {
         println!("{i}");
     }
-    //runtime
-    println!("{}ms",sort_algo::calc_insertionsort_runtime());
+    println!("Linear Search: {}", search_algo::linear_search(&arr, 4));
 
-    println!("Linear Search: {}", search_algo::linear_search(&arr, 9));
+    println!("Binaery Search: {}", search_algo::binaery_search(&arr, 4));
 
-    println!("Binaery Search: {}", search_algo::binaery_search(&arr, 9));
+    println!("Interpolation Search: {}", search_algo::interpolation_search(&arr, 4));
 
-    println!("Interpolation Search: {}", search_algo::interpolation_search(&arr, 9));
+    println!("RUNTIME BUBBLESORT: {}ms",runtime::calc_bubblesort_runtime());
+
+    println!("RUNTIME INSERTIONSORT: {}ms",runtime::calc_insertionsort_runtime());
 
 }

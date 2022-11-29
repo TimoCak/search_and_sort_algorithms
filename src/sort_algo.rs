@@ -1,9 +1,3 @@
-use std::time::Instant;
-
-
-/*
-sort-methods
-*/
 pub fn bubble_sort<T: Ord>(arr: &mut [T]) {
     for _i in 0..arr.len() {
         for item in 0..arr.len() {
@@ -40,24 +34,15 @@ pub fn insertion_sort<T: Copy + std::cmp::PartialOrd>(arr: &mut [T]) {
     }
 }
 
-/*
-calc_runtime - methods
-*/
-
-pub const ARRAY_SIZE: usize = 1000;
-
-pub fn calc_bubblesort_runtime() -> u128 {
-    let mut arr  = [0; ARRAY_SIZE];
-    let now = Instant::now();
-    bubble_sort(&mut arr);
-    let elapsed = now.elapsed();
-    return elapsed.as_millis();
-}
-
-pub fn calc_insertionsort_runtime() -> u128 {
-    let mut arr  = [0; ARRAY_SIZE];
-    let now = Instant::now();
-    insertion_sort(&mut arr);
-    let elapsed = now.elapsed();
-    return elapsed.as_millis();
+pub fn selection_sort<T: Ord>(arr: &mut [T]) {
+    let len = arr.len();
+    for left in 0..len {
+        let mut smallest = left;
+        for right in (left + 1)..len {
+            if arr[right] < arr[smallest] {
+                smallest = right;
+            }
+        }
+        arr.swap(smallest, left);
+    }
 }

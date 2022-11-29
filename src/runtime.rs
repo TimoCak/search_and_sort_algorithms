@@ -1,7 +1,7 @@
 use std::time::Instant;
 use rand::Rng;
 
-pub const ARRAY_SIZE: usize = 10000;
+pub const ARRAY_SIZE: usize = 50000;
 
 pub fn calc_bubblesort_runtime() -> u128 {
     use crate::sort_algo::bubble_sort;
@@ -23,6 +23,17 @@ pub fn calc_insertionsort_runtime() -> u128 {
     insertion_sort(&mut arr);
     let elapsed = now.elapsed();
     return elapsed.as_millis();
+}
+
+pub fn calc_selectionsort_runtime() -> u128 {
+    use crate::sort_algo::selection_sort;
+    let mut arr = [0; ARRAY_SIZE];
+    fill_array_with_random_numbers(&mut arr);
+
+    let now = Instant::now();
+    selection_sort(&mut arr);
+    let elapsed = now.elapsed();
+    return  elapsed.as_millis();
 }
 
 fn fill_array_with_random_numbers(arr: &mut [usize]) {

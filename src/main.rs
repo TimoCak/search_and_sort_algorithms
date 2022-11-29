@@ -28,4 +28,6 @@ fn main() {
 
     println!("RUNTIME INSERTIONSORT: {}ms",runtime::calc_insertionsort_runtime());
 
+    println!("RUNTIME SELECTIONSORT: {}ms",runtime::calc_selectionsort_runtime());
+
 }
